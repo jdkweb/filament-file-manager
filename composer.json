@@ -1,0 +1,44 @@
+{
+    "name": "jdkweb/filament-file-manager",
+    "type": "library",
+    "description": "Manage your media files using spatie media library with easy to use GUI for FilamentPHP",
+    "keywords": [
+        "php",
+        "laravel",
+        "filament",
+        "media",
+        "manager",
+        "spatie",
+        "media-library"
+    ],
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Jdkweb\\FilamentFileManager\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Jdkweb\\FilamentFileManager\\FilamentFileManagerServiceProvider"
+            ]
+        }
+    },
+    "authors": [
+        {
+            "name": "Jasper",
+            "email": "jasper@jdkweb.nl"
+        }
+    ],
+    "require": {
+        "php": "^8.1|^8.2",
+        "spatie/laravel-medialibrary": "^10.0|^11.0",
+        "filament/spatie-laravel-media-library-plugin": "^v3.0.0",
+        "filament/filament": "^v3.0.0"
+    }
+}
