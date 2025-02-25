@@ -43,7 +43,7 @@
                 />
             </div>
             <x-filament-tables::empty-state.heading>
-                {{ trans('filament-file-manager::messages.empty.title') }}
+                {{ __('filament-file-manager::messages.empty.title') }}
             </x-filament-tables::empty-state.heading>
         </div>
     </div>

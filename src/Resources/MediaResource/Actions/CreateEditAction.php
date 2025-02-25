@@ -73,7 +73,7 @@ class CreateEditAction
                 //                                    ->toMediaCollection($record->folder()->first()->collection);
 
 
-                Notification::make()->title(trans('filament-file-manager::messages.media.notifications.create-media'))->send();
+                Notification::make()->title(__('filament-file-manager::messages.media.notifications.create-media'))->send();
             });
     }
 }

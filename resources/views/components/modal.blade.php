@@ -55,7 +55,7 @@
             @if($item->model)
             <div>
                 <div>
-                    <h1 class="font-bold">{{ trans('filament-file-manager::messages.media.meta.model') }}</h1>
+                    <h1 class="font-bold">{{ __('filament-file-manager::messages.media.meta.model') }}</h1>
                 </div>
                 <div class="flex justify-start">
                     <p class="text-sm">
@@ -66,7 +66,7 @@
             @endif
             <div>
                 <div>
-                    <h1 class="font-bold">{{ trans('filament-file-manager::messages.media.meta.file-name') }}</h1>
+                    <h1 class="font-bold">{{ __('filament-file-manager::messages.media.meta.file-name') }}</h1>
                 </div>
                 <div class="flex justify-start">
                     <p class="text-sm">
@@ -76,7 +76,7 @@
             </div>
             <div>
                 <div>
-                    <h1 class="font-bold">{{ trans('filament-file-manager::messages.media.meta.type') }}</h1>
+                    <h1 class="font-bold">{{ __('filament-file-manager::messages.media.meta.type') }}</h1>
                 </div>
                 <div class="flex justify-start">
                     <p class="text-sm">
@@ -86,7 +86,7 @@
             </div>
             <div>
                 <div>
-                    <h1 class="font-bold">{{ trans('filament-file-manager::messages.media.meta.size') }}</h1>
+                    <h1 class="font-bold">{{ __('filament-file-manager::messages.media.meta.size') }}</h1>
                 </div>
                 <div class="flex justify-start">
                     <p class="text-sm">
@@ -96,7 +96,7 @@
             </div>
             <div>
                 <div>
-                    <h1 class="font-bold">{{ trans('filament-file-manager::messages.media.meta.disk') }}</h1>
+                    <h1 class="font-bold">{{ __('filament-file-manager::messages.media.meta.disk') }}</h1>
                 </div>
                 <div class="flex justify-start">
                     <p class="text-sm">

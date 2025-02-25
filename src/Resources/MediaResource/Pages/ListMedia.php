@@ -114,7 +114,7 @@ class ListMedia extends ManageRecords
 
                 }
 
-                Notification::make()->title(trans('filament-file-manager::messages.media.notifications.create-media'))->send();
+                Notification::make()->title(__('filament-file-manager::messages.media.notifications.create-media'))->send();
             });
     }
 
@@ -230,7 +230,7 @@ class ListMedia extends ManageRecords
     public function deleteMedia()
     {
         return Actions\Action::make('deleteMedia')
-            ->label("XXX" . trans('filament-file-manager::messages.media.meta.delete-media'))
+            ->label("XXX" . __('filament-file-manager::messages.media.meta.delete-media'))
             ->icon('heroicon-s-trash')
             ->color('danger')
             ->requiresConfirmation()
@@ -239,7 +239,7 @@ class ListMedia extends ManageRecords
                 $media->delete();
 
                 Notification::make()
-                    ->title("OOOO" . trans('filament-file-manager::messages.media.notifications.delete-folder'))
+                    ->title("OOOO" . __('filament-file-manager::messages.media.notifications.delete-folder'))
                     ->success()
                     ->send();
             });

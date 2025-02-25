@@ -14,11 +14,11 @@ class CreateMediaAction
     public static function make(int $folder_id): Actions\Action
     {
         return Actions\CreateAction::make('create_media')
-            ->label(trans('filament-file-manager::messages.media.actions.create.label'))
+            ->label(__('filament-file-manager::messages.media.actions.create.label'))
             ->icon('heroicon-o-plus')
             ->form([
                 SpatieMediaLibraryFileUpload::make('file')
-                    ->label(trans('filament-file-manager::messages.media.actions.create.form.file'))
+                    ->label(__('filament-file-manager::messages.media.actions.create.form.file'))
                     ->maxSize('100000')
                     //->columnSpanFull()
                     ->required()
@@ -38,10 +38,10 @@ class CreateMediaAction
                     //->directory('media'),
                     //->visibility('public'),
                 Forms\Components\TextInput::make('title')
-                    ->label(trans('filament-file-manager::messages.media.actions.create.form.title'))
+                    ->label(__('filament-file-manager::messages.media.actions.create.form.title'))
                     ->columnSpanFull(),
                 Forms\Components\Textarea::make('description')
-                    ->label(trans('filament-file-manager::messages.media.actions.create.form.description'))
+                    ->label(__('filament-file-manager::messages.media.actions.create.form.description'))
                     ->columnSpanFull(),
             ])
             ->action(function (array $data, Component $livewire) {
@@ -67,7 +67,7 @@ class CreateMediaAction
 
                 }
 
-                Notification::make()->title(trans('filament-file-manager::messages.media.notifications.create-media'))->send();
+                Notification::make()->title(__('filament-file-manager::messages.media.notifications.create-media'))->send();
             });
     }
 }

@@ -20,13 +20,13 @@ class CreateSubFolderAction
             })
             ->color('info')
             ->hiddenLabel()
-            ->tooltip(trans('filament-file-manager::messages.media.actions.sub_folder.label'))
-            ->label(trans('filament-file-manager::messages.media.actions.sub_folder.label'))
+            ->tooltip(__('filament-file-manager::messages.media.actions.sub_folder.label'))
+            ->label(__('filament-file-manager::messages.media.actions.sub_folder.label'))
             ->icon('heroicon-o-folder-minus')
             ->extraAttributes(['style' => 'padding: 12px 22px; font-size: 14px;'])
             ->form([
                 Forms\Components\TextInput::make('name')
-                    ->label(trans('filament-file-manager::messages.folders.columns.name'))
+                    ->label(__('filament-file-manager::messages.folders.columns.name'))
                     ->columnSpanFull()
                     ->lazy()
                     ->afterStateUpdated(function (Forms\Set $set, Forms\Get $get) {
@@ -35,32 +35,32 @@ class CreateSubFolderAction
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('collection')
-                    ->label(trans('filament-file-manager::messages.folders.columns.collection'))
+                    ->label(__('filament-file-manager::messages.folders.columns.collection'))
                     ->columnSpanFull()
                     ->unique(Folder::class)
                     ->required()
                     ->maxLength(255),
                 Forms\Components\Textarea::make('description')
-                    ->label(trans('filament-file-manager::messages.folders.columns.description'))
+                    ->label(__('filament-file-manager::messages.folders.columns.description'))
                     ->columnSpanFull()
                     ->maxLength(255),
                 IconPicker::make('icon')
-                    ->label(trans('filament-file-manager::messages.folders.columns.icon')),
+                    ->label(__('filament-file-manager::messages.folders.columns.icon')),
                 Forms\Components\ColorPicker::make('color')
-                    ->label(trans('filament-file-manager::messages.folders.columns.color')),
+                    ->label(__('filament-file-manager::messages.folders.columns.color')),
                 Forms\Components\Toggle::make('is_protected')
-                    ->label(trans('filament-file-manager::messages.folders.columns.is_protected'))
+                    ->label(__('filament-file-manager::messages.folders.columns.is_protected'))
                     ->live()
                     ->columnSpanFull(),
                 Forms\Components\TextInput::make('password')
-                    ->label(trans('filament-file-manager::messages.folders.columns.password'))
+                    ->label(__('filament-file-manager::messages.folders.columns.password'))
                     ->hidden(fn(Forms\Get $get) => !$get('is_protected'))
                     ->password()
                     ->revealable()
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('password_confirmation')
-                    ->label(trans('filament-file-manager::messages.folders.columns.password_confirmation'))
+                    ->label(__('filament-file-manager::messages.folders.columns.password_confirmation'))
                     ->hidden(fn(Forms\Get $get) => !$get('is_protected'))
                     ->password()
                     ->required()

@@ -15,8 +15,8 @@ class DeleteFolderAction
             })
             ->hiddenLabel()
             ->requiresConfirmation()
-            ->tooltip(trans('filament-file-manager::messages.media.actions.delete.label'))
-            ->label(trans('filament-file-manager::messages.media.actions.delete.label'))
+            ->tooltip(__('filament-file-manager::messages.media.actions.delete.label'))
+            ->label(__('filament-file-manager::messages.media.actions.delete.label'))
             ->icon('heroicon-o-trash')
             ->color('danger')
             ->action(function () use ($folder_id){
@@ -24,7 +24,7 @@ class DeleteFolderAction
                 $folder->delete();
                 session()->forget('folder_id');
 
-                Notification::make()->title(trans('filament-file-manager::messages.media.notifications.delete-folder'))->send();
+                Notification::make()->title(__('filament-file-manager::messages.media.notifications.delete-folder'))->send();
                 return redirect()->route('filament.'.filament()->getCurrentPanel()->getId().'.resources.folders.index');
             });
     }

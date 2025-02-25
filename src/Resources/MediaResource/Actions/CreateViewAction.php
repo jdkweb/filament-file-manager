@@ -57,11 +57,11 @@ class CreateViewAction
 //                    ->width('100%')
 //                    ->extraAttributes(['style' => 'width: 500px; height: auto']),
 //                TextEntry::make('title')
-//                    ->inlineLabel(trans('filament-file-manager::messages.media.actions.create.form.title'))
+//                    ->inlineLabel(__('filament-file-manager::messages.media.actions.create.form.title'))
 //                    ->state(fn(Media $record) => (isset($record->custom_properties['title']) ? $record->custom_properties['title'] : '-'))
 //                    ->columnSpanFull(),
 //                TextEntry::make('description')
-//                    ->inlineLabel(trans('filament-file-manager::messages.media.actions.create.form.description'))
+//                    ->inlineLabel(__('filament-file-manager::messages.media.actions.create.form.description'))
 //                    ->state(fn(Media $record) => (isset($record->custom_properties['description']) ? $record->custom_properties['description'] : '-'))
 //                    ->columnSpanFull(),
 //            ])

@@ -126,10 +126,10 @@ class Media extends \Spatie\MediaLibrary\MediaCollections\Models\Media  implemen
                 ->disk('media')
                 ->directory((is_null($record) ? '' : $record->id)),
             TextInput::make('title')
-                ->inlineLabel(trans('filament-file-manager::messages.media.actions.create.form.title'))
+                ->inlineLabel(__('filament-file-manager::messages.media.actions.create.form.title'))
                 ->columnSpanFull(),
             TextInput::make('description')
-                ->inlineLabel(trans('filament-file-manager::messages.media.actions.create.form.description'))
+                ->inlineLabel(__('filament-file-manager::messages.media.actions.create.form.description'))
                 ->columnSpanFull(),
         ];
     }
