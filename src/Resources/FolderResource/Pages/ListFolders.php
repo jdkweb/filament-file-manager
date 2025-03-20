@@ -29,6 +29,12 @@ class ListFolders extends ManageRecords
         session()->forget('folder_password');
     }
 
+//    public function folderAction(?Folder $item=null)
+//    {
+//        if(is_null($item)) return null;
+//        return ($item->folderAction($item)(['record' => $item]));
+//    }
+
     public function folderAction(?Folder $item=null){
         return Actions\Action::make('folderAction')
             ->requiresConfirmation(function (array $arguments){

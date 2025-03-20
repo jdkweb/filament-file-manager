@@ -9,11 +9,18 @@ use Livewire\Component;
 
 class MediaResource extends Component
 {
+    public ?int $model_id = null;
+
+    public $modal_content;
+
     public function render()
     {
-        return view('filament-file-manager::livewire.media-resource', [
+        $output = view('filament-file-manager::livewire.media-resource', [
             'records' => $this->getImageData()
-        ]);
+        ])->render();
+
+        //return $output;
+        //dd($output);
     }
 
     #[On('selectMediaItem')]
@@ -27,6 +34,12 @@ class MediaResource extends Component
     // Fetch data for the table with search
     protected function getImageData()
     {
-        return Folder::query()->whereNull('model_id')->get();
+        return Media::query()->where('model_id', $this->model_id)->get();
+    }
+
+    public function setModelId(?int $id): static
+    {
+        $this->model_id = $id;
+        return $this;
     }
 }

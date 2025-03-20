@@ -148,4 +148,14 @@ class Media extends \Spatie\MediaLibrary\MediaCollections\Models\Media  implemen
     {
         return $this->hasOne(Folder::class, 'id', 'model_id');
     }
+
+    public function file()
+    {
+
+    }
+
+    public function getImageUrl()
+    {
+
+    }
 }

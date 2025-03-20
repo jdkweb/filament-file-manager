@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // select buttons in loop
     buttons = [];
     document.querySelectorAll('[data-trix-action=\'file-manager\']').forEach(function (button) {
+        console.log("TEST", button);
         if (button === null) return '';
 
         [prefix, id] = button.parentElement.parentElement.parentElement.getAttribute('id').split("\.")

@@ -3,9 +3,11 @@
 namespace Jdkweb\FilamentFileManager;
 
 use Filament\Support\Assets\Css;
+use Filament\Support\Assets\Js;
 use Filament\Support\Facades\FilamentAsset;
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
+use Jdkweb\FilamentFileManager\Livewire\ModalResource;
 use Jdkweb\FilamentFileManager\Livewire\MediaResource;
 use Jdkweb\FilamentFileManager\Services\FilamentFileManagerServices;
 
@@ -81,11 +83,14 @@ class FilamentFileManagerServiceProvider extends ServiceProvider
         // Icons for file-types
         $this->loadRoutesFrom(__DIR__.'/../routes/icons.php');
 
+        Livewire::component('filament-file-manager.modal-resource', ModalResource::class);
+        Livewire::component('filament-file-manager.folder-resource', ModalResource::class);
         Livewire::component('filament-file-manager.media-resource', MediaResource::class);
 
         // reloaded by dump-autoload
         FilamentAsset::register([
             Css::make('filament-file-manager-css', dirname(__DIR__ ) . '/resources/css/media.css'),
+            // Js::make('custom-trix-editor', dirname(__DIR__ ) . '/resources/js/custom-trix-editor.js'),
         ]);
 
 //        $this->app->bind('filament-file-manager', function () {

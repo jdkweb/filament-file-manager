@@ -53,11 +53,12 @@ class FilamentFileManagerPlugin implements Plugin
 //        }
 //
 //        if($this->isActive) {
-            $panel->resources([
-                FolderResource::class,
-                MediaResource::class
-            ]);
-//        }
+
+        $panel->resources([
+            FolderResource::class,
+            MediaResource::class
+        ]);
+
 
     }
 

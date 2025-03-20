@@ -42,6 +42,7 @@
             <div class="media_select_flex"
                  id="media_select_flex">
                 <div class="media_select_gallery">
+                    aaaa
                     @foreach($records as $record)
                         <x-filament-file-manager::editor.imagecard :record="$record" />
                     @endforeach

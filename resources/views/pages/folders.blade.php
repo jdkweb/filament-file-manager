@@ -3,4 +3,5 @@
     @foreach($records as $item)
         {{ ($this->folderAction($item))(['record' => $item]) }}
     @endforeach
+    folders.blade.php
 </div>
