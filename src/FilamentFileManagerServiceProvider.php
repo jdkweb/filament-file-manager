@@ -5,15 +5,22 @@ namespace Jdkweb\FilamentFileManager;
 use Filament\Support\Assets\Css;
 use Filament\Support\Assets\Js;
 use Filament\Support\Facades\FilamentAsset;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\ServiceProvider;
+use Jdkweb\FilamentFileManager\Console\FilamentMediaManagerPublishIcons;
+use Jdkweb\FilamentFileManager\Livewire\TrixMediaEditResource;
+use Jdkweb\FilamentFileManager\Livewire\MediaSelectorResource;
 use Livewire\Livewire;
 use Jdkweb\FilamentFileManager\Livewire\ModalResource;
 use Jdkweb\FilamentFileManager\Livewire\MediaResource;
 use Jdkweb\FilamentFileManager\Services\FilamentFileManagerServices;
+use function PHPUnit\Framework\fileExists;
 
 
 class FilamentFileManagerServiceProvider extends ServiceProvider
 {
+    const __DEVELOPMENT__ = false;
+
     /**
      * Register the service provider.
      * Binding Rdw class into Laravel service container.
@@ -22,12 +29,12 @@ class FilamentFileManagerServiceProvider extends ServiceProvider
      */
     final public function register():void
     {
-        $this->app->singleton(FilamentFileManagerServices::class, function ($app) {
-            return new FilamentFileManagerServices();
-        });
-
-        // Alias
-        $this->app->alias(FilamentFileManagerServices::class, 'filament-file-manager');
+//        $this->app->singleton(FilamentFileManagerServices::class, function ($app) {
+//            return new FilamentFileManagerServices();
+//        });
+//
+//        // Alias
+//        $this->app->alias(FilamentFileManagerServices::class, 'filament-file-manager');
     }
 
     /**
@@ -36,11 +43,6 @@ class FilamentFileManagerServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //Register generate command
-//        $this->commands([
-//           \Jdkweb\FilamentFileManager\Console\FilamentMediaManagerInstall::class,
-//        ]);
-
         //Register Config file
         $this->mergeConfigFrom(__DIR__.'/../config/filament-file-manager.php', 'filament-file-manager');
 
@@ -83,20 +85,17 @@ class FilamentFileManagerServiceProvider extends ServiceProvider
         // Icons for file-types
         $this->loadRoutesFrom(__DIR__.'/../routes/icons.php');
 
-        Livewire::component('filament-file-manager.modal-resource', ModalResource::class);
-        Livewire::component('filament-file-manager.folder-resource', ModalResource::class);
-        Livewire::component('filament-file-manager.media-resource', MediaResource::class);
 
-        // reloaded by dump-autoload
-        FilamentAsset::register([
-            Css::make('filament-file-manager-css', dirname(__DIR__ ) . '/resources/css/media.css'),
-            // Js::make('custom-trix-editor', dirname(__DIR__ ) . '/resources/js/custom-trix-editor.js'),
-        ]);
-
-//        $this->app->bind('filament-file-manager', function () {
-//            return new FilamentMediaManagerServices();
-//        });
+        if($this->app->environment('local') && self::__DEVELOPMENT__) {
+            FilamentAsset::register([
+                Css::make('filament-file-manager', dirname(__DIR__ ) . '/resources/css/app.css'),
+                Js::make('filament-file-manager', dirname(__DIR__ ) . '/resources/js/app.js')
+            ]);
+        }
+        else {
+            FilamentAsset::register([
+                Css::make('filament-file-manager', dirname(__DIR__ ) . '/resources/dist/filament-file-manager.css')
+            ], 'jdkweb/filament-file-manager');
+        }
     }
-
-
 }

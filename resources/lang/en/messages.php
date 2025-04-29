@@ -26,11 +26,12 @@ return [
         'title' => 'Media',
         'single' => 'Media',
         'columns' => [
-            'image' => 'Image',
+            'image' => 'Naam',
             'model' => 'Model',
+            'description' => 'Omschrijving',
             'collection_name' => 'Collection Name',
-            'size' => 'Size',
-            'order_column' => 'Order Column',
+            'size' => 'Bestandsgrootte',
+            'order_column' => 'Upload volgorde',
         ],
         'actions' => [
             'sub_folder'=> [

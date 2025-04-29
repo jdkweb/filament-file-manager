@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/admin/images/{filename}', function ($filename) {
+Route::get('/filament_file_manager/images/{filename}', function ($filename) {
 
     $path =  dirname(__DIR__) . '/assets/icons/' . $filename;
 
@@ -15,7 +15,3 @@ Route::get('/admin/images/{filename}', function ($filename) {
 
     return Response::make($file, 200)->header('Content-Type', $type);
 });
-
-//Route::get('/css/app/media.css', function ($filename) {
-//
-//});

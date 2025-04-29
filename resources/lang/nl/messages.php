@@ -2,20 +2,20 @@
 
 return [
     'empty' => [
-        'title' => "No Media or Folders Found",
+        'title' => "Geen media en folders gevonden",
     ],
     'folders' => [
         'title' => 'Bestands beheer',
         'single' => 'Folder',
         'columns' => [
-            'name' => 'Name',
-            'collection' => 'Collection',
-            'description' => 'Description',
+            'name' => 'Naam',
+            'collection' => 'Collectie',
+            'description' => 'Omschrijving',
             'is_public' => 'Is Public',
             'has_user_access' => 'Has User Access',
             'users' => 'Users',
             'icon' => 'Icon',
-            'color' => 'Color',
+            'color' => 'Kleur',
             'is_protected' => 'Is Protected',
             'password' => 'Password',
             'password_confirmation' => 'Password Confirmation',
@@ -57,10 +57,10 @@ return [
                 ],
             ],
             'delete' => [
-                'label' => 'Delete Folder',
+                'label' => 'Verwijder Folder',
             ],
             'edit' => [
-                'label' => 'Edit Folder',
+                'label' => 'Bewerk Folder',
             ],
         ],
         'notifications' => [
@@ -70,7 +70,7 @@ return [
         ],
         'meta' => [
             'model' => 'Model',
-            'file-name' => 'File Name',
+            'file-name' => 'Bestandsnaam',
             'type' => 'Type',
             'size' => 'Size',
             'disk' => 'Disk',

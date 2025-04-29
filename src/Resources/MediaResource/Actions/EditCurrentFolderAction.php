@@ -13,8 +13,8 @@ class EditCurrentFolderAction
 {
     public static function make(int $folder_id): Actions\Action
     {
-        $form = config('filament-file-manager.model.folder')::query()->where('id',$folder_id)->with('users')->first()?->toArray();
-        $form['users'] = collect($form['users'])->pluck('id')->toArray();
+        $form = config('filament-file-manager.model.folder')::query()->where('id',$folder_id)->with('user')->first()?->toArray();
+        $form['users'] = collect($form['user'])->pluck('id')->toArray();
 
         return Actions\Action::make('edit_current_folder')
             ->hiddenLabel()
@@ -42,29 +42,29 @@ class EditCurrentFolderAction
                             ->label(__('filament-file-manager::messages.folders.columns.description'))
                             ->columnSpanFull()
                             ->maxLength(255),
-                        IconPicker::make('icon')
-                            ->label(__('filament-file-manager::messages.folders.columns.icon')),
+//                        IconPicker::make('icon')
+//                            ->label(__('filament-file-manager::messages.folders.columns.icon')),
                         Forms\Components\ColorPicker::make('color')
                             ->label(__('filament-file-manager::messages.folders.columns.color')),
-                        Forms\Components\Toggle::make('is_protected')
-                            ->label(__('filament-file-manager::messages.folders.columns.is_protected'))
-                            ->live()
-                            ->columnSpanFull(),
-                        Forms\Components\TextInput::make('password')
-                            ->label(__('filament-file-manager::messages.folders.columns.password'))
-                            ->hidden(fn(Forms\Get $get) => !$get('is_protected'))
-                            ->confirmed()
-                            ->password()
-                            ->revealable()
-                            ->required()
-                            ->maxLength(255),
-                        Forms\Components\TextInput::make('password_confirmation')
-                            ->label(__('filament-file-manager::messages.folders.columns.password_confirmation'))
-                            ->hidden(fn(Forms\Get $get) => !$get('is_protected'))
-                            ->password()
-                            ->required()
-                            ->revealable()
-                            ->maxLength(255),
+//                        Forms\Components\Toggle::make('is_protected')
+//                            ->label(__('filament-file-manager::messages.folders.columns.is_protected'))
+//                            ->live()
+//                            ->columnSpanFull(),
+//                        Forms\Components\TextInput::make('password')
+//                            ->label(__('filament-file-manager::messages.folders.columns.password'))
+//                            ->hidden(fn(Forms\Get $get) => !$get('is_protected'))
+//                            ->confirmed()
+//                            ->password()
+//                            ->revealable()
+//                            ->required()
+//                            ->maxLength(255),
+//                        Forms\Components\TextInput::make('password_confirmation')
+//                            ->label(__('filament-file-manager::messages.folders.columns.password_confirmation'))
+//                            ->hidden(fn(Forms\Get $get) => !$get('is_protected'))
+//                            ->password()
+//                            ->required()
+//                            ->revealable()
+//                            ->maxLength(255),
                         Forms\Components\Toggle::make('is_public')
                             ->visible(filament('filament-file-manager')->allowUserAccess)
                             ->label(__('filament-file-manager::messages.folders.columns.is_public'))

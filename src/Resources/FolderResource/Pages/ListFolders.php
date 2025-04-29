@@ -6,6 +6,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Notifications\Notification;
 use Filament\Resources\Pages\ManageRecords;
 use Illuminate\Validation\ValidationException;
+use Jdkweb\FilamentFileManager\Livewire\MediaResource;
 use Jdkweb\FilamentFileManager\Models\Folder;
 use Jdkweb\FilamentFileManager\Models\Media;
 use Jdkweb\FilamentFileManager\Resources\FolderResource;
@@ -36,6 +37,7 @@ class ListFolders extends ManageRecords
 //    }
 
     public function folderAction(?Folder $item=null){
+
         return Actions\Action::make('folderAction')
             ->requiresConfirmation(function (array $arguments){
                 if($arguments['record']['is_protected']){
@@ -106,6 +108,6 @@ class ListFolders extends ManageRecords
                     }
                 }
             })
-            ->view('filament-file-manager::pages.folder-action', ['item' => $item]);
+            ->view('filament-file-manager::components.folder-action-filament-actions', ['item' => $item]);
     }
 }

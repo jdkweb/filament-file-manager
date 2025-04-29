@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Facade;
  */
 class FilamentFileManager extends Facade
 {
+
     protected static function getFacadeAccessor()
     {
         return 'filament-file-manager';

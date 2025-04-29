@@ -82,28 +82,28 @@ class FolderResource extends Resource
                     ->label(__('filament-file-manager::messages.folders.columns.description'))
                     ->columnSpanFull()
                     ->maxLength(255),
-                IconPicker::make('icon')
-                    ->label(__('filament-file-manager::messages.folders.columns.icon')),
+//                IconPicker::make('icon')
+//                    ->label(__('filament-file-manager::messages.folders.columns.icon')),
                 Forms\Components\ColorPicker::make('color')
                     ->label(__('filament-file-manager::messages.folders.columns.color')),
-                Forms\Components\Toggle::make('is_protected')
-                    ->label(__('filament-file-manager::messages.folders.columns.is_protected'))
-                    ->live()
-                    ->columnSpanFull(),
-                Forms\Components\TextInput::make('password')
-                    ->label(__('filament-file-manager::messages.folders.columns.password'))
-                    ->hidden(fn(Forms\Get $get) => !$get('is_protected'))
-                    ->password()
-                    ->revealable()
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('password_confirmation')
-                    ->label(__('filament-file-manager::messages.folders.columns.password_confirmation'))
-                    ->hidden(fn(Forms\Get $get) => !$get('is_protected'))
-                    ->password()
-                    ->required()
-                    ->revealable()
-                    ->maxLength(255)
+//                Forms\Components\Toggle::make('is_protected')
+//                    ->label(__('filament-file-manager::messages.folders.columns.is_protected'))
+//                    ->live()
+//                    ->columnSpanFull(),
+//                Forms\Components\TextInput::make('password')
+//                    ->label(__('filament-file-manager::messages.folders.columns.password'))
+//                    ->hidden(fn(Forms\Get $get) => !$get('is_protected'))
+//                    ->password()
+//                    ->revealable()
+//                    ->required()
+//                    ->maxLength(255),
+//                Forms\Components\TextInput::make('password_confirmation')
+//                    ->label(__('filament-file-manager::messages.folders.columns.password_confirmation'))
+//                    ->hidden(fn(Forms\Get $get) => !$get('is_protected'))
+//                    ->password()
+//                    ->required()
+//                    ->revealable()
+//                    ->maxLength(255)
             ])->columns(2);
     }
 
@@ -127,7 +127,7 @@ class FolderResource extends Resource
                 }
             })
             ->content(function () {
-                return view('filament-file-manager::pages.folders');
+                return view('filament-file-manager::folders');
             })
             ->columns([
                 Tables\Columns\Layout\Stack::make([
@@ -146,10 +146,10 @@ class FolderResource extends Resource
                         ->label(__('filament-file-manager::messages.folders.columns.color'))
                         ->sortable()
                         ->searchable(),
-                    Tables\Columns\IconColumn::make('is_protected')
-                        ->label(__('filament-file-manager::messages.folders.columns.is_protected'))
-                        ->sortable()
-                        ->boolean(),
+//                    Tables\Columns\IconColumn::make('is_protected')
+//                        ->label(__('filament-file-manager::messages.folders.columns.is_protected'))
+//                        ->sortable()
+//                        ->boolean(),
                     Tables\Columns\TextColumn::make('created_at')
                         ->dateTime()
                         ->sortable()

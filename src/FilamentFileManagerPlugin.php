@@ -5,7 +5,7 @@ namespace Jdkweb\FilamentFileManager;
 use Filament\Contracts\Plugin;
 use Filament\Panel;
 use Nwidart\Modules\Module;
-use TomatoPHP\FilamentArtisan\Pages\Artisan;
+//use TomatoPHP\FilamentArtisan\Pages\Artisan;
 use Jdkweb\FilamentFileManager\Facade\FilamentFileManager;
 use Jdkweb\FilamentFileManager\Pages\FoldersPage;
 use Jdkweb\FilamentFileManager\Resources\FolderResource;
@@ -16,7 +16,6 @@ use Jdkweb\FilamentFileManager\Services\Contracts\FileManagerType;
 class FilamentFileManagerPlugin implements Plugin
 {
     private bool $isActive = false;
-
 
     public ?bool $allowSubFolders = true;
     public ?bool $allowUserAccess = false;

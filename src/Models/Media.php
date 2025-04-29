@@ -15,6 +15,7 @@ use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Forms\Get;
+use Illuminate\Container\Attributes\Storage;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Support\HtmlString;
@@ -28,6 +29,8 @@ class Media extends \Spatie\MediaLibrary\MediaCollections\Models\Media  implemen
 
     protected static function booted(): void
     {
+
+
         static::addGlobalScope('folder', function (Builder $query) {
             $folder = Folder::find(session()->get('folder_id'));
             if($folder){
@@ -114,7 +117,7 @@ class Media extends \Spatie\MediaLibrary\MediaCollections\Models\Media  implemen
                 ->downloadable()
                 //->conversion('preview')
                 ->reorderable()
-                ->imagePreviewHeight('500')
+                ->imagePreviewHeight(fn() => ($view && !is_null($record) ? '900' : '500'))
                 ->preserveFilenames()
                 ->imageEditor(!$view)
                 ->imageEditorAspectRatios([
@@ -126,14 +129,24 @@ class Media extends \Spatie\MediaLibrary\MediaCollections\Models\Media  implemen
                 ->disk('media')
                 ->directory((is_null($record) ? '' : $record->id)),
             TextInput::make('title')
+                ->label(__('filament-file-manager::messages.media.actions.create.form.title'))
                 ->inlineLabel(__('filament-file-manager::messages.media.actions.create.form.title'))
+                ->hidden($view && !is_null($record))
                 ->columnSpanFull(),
             TextInput::make('description')
+                ->label(__('filament-file-manager::messages.media.actions.create.form.description'))
                 ->inlineLabel(__('filament-file-manager::messages.media.actions.create.form.description'))
+                ->hidden($view && !is_null($record))
                 ->columnSpanFull(),
         ];
     }
 
+    /**
+     * Problems with loading Spatie when editing an existing image
+     *
+     * @param  bool  $edit
+     * @return FileUpload|SpatieMediaLibraryFileUpload
+     */
     protected static function getFileUploadImage(bool $edit)
     {
         if($edit) {
@@ -151,11 +164,30 @@ class Media extends \Spatie\MediaLibrary\MediaCollections\Models\Media  implemen
 
     public function file()
     {
+        return "<img src='" . $this->getUrl() ."' alt=''/>";
+        //return view('filament-file-manager::components.figure', ['record' => $this])->render();
+    }
 
+    public function getListingImage(): string
+    {
+        if(!is_null($this->getIcon())) {
+            return $this->getIcon()->getIconPath();
+        }
+
+        return $this->getUrl();
+    }
+
+    public function blob()
+    {
+        $fileData = file_get_contents($this->getPath());
+        $mimeType = mime_content_type($this->getPath());
+        return 'data:' . $mimeType . ';base64,' . base64_encode($fileData);
+
+        //return view('filament-file-manager::components.figure', ['record' => $this])->render();
     }
 
     public function getImageUrl()
     {
-
+        //return self::getFileUploadImage(false);
     }
 }

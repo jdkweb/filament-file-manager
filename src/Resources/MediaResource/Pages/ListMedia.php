@@ -223,7 +223,7 @@ class ListMedia extends ManageRecords
                     }
                 }
             })
-            ->view('filament-file-manager::pages.folder-action', ['item' => $item]);
+            ->view('filament-file-manager::components.folder-action-filament-actions', ['item' => $item]);
     }
 
 
@@ -245,21 +245,4 @@ class ListMedia extends ManageRecords
             });
 
     }
-
-//    public function getActions(): array
-//    {
-//        return [
-//            Action::make('yourAction')
-//                ->label('Your Action')
-//                ->action(function () {
-//                    // Handle the action
-//                    return 'Action executed!';
-//                }),
-//            EditAction::make()
-//                ->label('Bewerken')
-//                ->icon('heroicon-s-pencil')
-//                ->modalHeading("Bewerken")
-//                ->modal(),
-//        ];
-//    }
 }

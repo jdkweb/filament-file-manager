@@ -4,7 +4,7 @@ namespace Jdkweb\FilamentFileManager\Resources;
 
 use App\Forms\Components\view;
 use App\Tables\Columns\MediaCard;
-use drh2so4\Thumbnail\Traits\Thumbnail;
+// use drh2so4\Thumbnail\Traits\Thumbnail;
 use Filament\Actions\Action;
 use Filament\Facades\Filament;
 use Filament\Infolists\Components\ImageEntry;
@@ -31,12 +31,15 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class MediaResource extends Resource
 {
-    use Thumbnail;
-
     protected static bool $isScopedToTenant = false;
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     protected static bool $shouldRegisterNavigation = false;
+
+    public function triggerFolder(array $record)
+    {
+        $this->modal_content = ""; //app(MediaResource::class)->setModelId($record['id'])->render();
+    }
 
     public static function getModel(): string
     {
@@ -130,7 +133,7 @@ class MediaResource extends Resource
             ->defaultSort('order_column', 'asc')
             ->actions([
                 CreateEditAction::make(),
-                CreateViewAction::make(),
+                CreateViewAction::make()->modalWidth('screen'),
                 Tables\Actions\DeleteAction::make()
                     ->requiresConfirmation()
                     ->label(false)

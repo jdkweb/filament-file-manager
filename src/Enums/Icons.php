@@ -17,14 +17,14 @@ enum Icons : string
     public function getIconPath(): ?string
     {
         return match ($this) {
-            self::CSS => '/admin/images/' . self::CSS->value,
-            self::DOCX => '/admin/images/' . self::DOCX->value,
-            self::JS => '/admin/images/' . self::JS->value,
-            self::PDF => '/admin/images/' . self::PDF->value,
-            self::ZIP => '/admin/images/' . self::ZIP->value,
-            self::XLS => '/admin/images/' . self::XLS->value,
-            self::TXT => '/admin/images/' . self::TXT->value,
-            self::HTML => '/admin/images/' . self::HTML->value,
+            self::CSS => '/filament_file_manager/images/' . self::CSS->value,
+            self::DOCX => '/filament_file_manager/images/' . self::DOCX->value,
+            self::JS => '/filament_file_manager/images/' . self::JS->value,
+            self::PDF => '/filament_file_manager/images/' . self::PDF->value,
+            self::ZIP => '/filament_file_manager/images/' . self::ZIP->value,
+            self::XLS => '/filament_file_manager/images/' . self::XLS->value,
+            self::TXT => '/filament_file_manager/images/' . self::TXT->value,
+            self::HTML => '/filament_file_manager/images/' . self::HTML->value,
             default => null,
         };
     }

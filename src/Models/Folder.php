@@ -102,8 +102,9 @@ class Folder extends Model implements HasMedia
 
 
     public function folderAction(?Folder $item=null){
+
         return Action::make('folderAction')
-              ->label("Vie Folder model")
+              ->label("View Folder model")
 //            ->requiresConfirmation(function (array $arguments){
 //                if($arguments['record']['is_protected']){
 //                    return true;
@@ -176,6 +177,6 @@ class Folder extends Model implements HasMedia
 //                    }
 //                }
 //            })
-            ->view('filament-file-manager::pages.folder-action', ['item' => $item]);
+            ->view('filament-file-manager::folder-action', ['item' => $item]);
     }
 }
