@@ -31,7 +31,7 @@ class FolderResource extends Component
 
     public function triggerFolder(array $record)
     {
-        $this->modal_content = "pipo"; //app(MediaResource::class)->setModelId($record['id'])->render();
+        $this->modal_content = ""; //app(MediaResource::class)->setModelId($record['id'])->render();
     }
 
     public function folderAction(?Folder $item = null)

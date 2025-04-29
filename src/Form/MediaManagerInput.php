@@ -37,7 +37,7 @@ class MediaManagerInput extends Repeater
 
     protected array $form = [];
 
-    protected string | Closure | null $diskName = null;
+    protected string | Closure | null $diskName = 'media';
     protected string | Closure | null $folderTitleFieldName = null;
 
     protected function setUp(): void

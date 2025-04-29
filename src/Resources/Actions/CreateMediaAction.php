@@ -32,9 +32,9 @@ class CreateMediaAction
                         '16:9',
                         '4:3',
                         '1:1',
-                    ]),
+                    ])
                     //->storeFiles(false),
-                    //->disk('media'),
+                    ->disk('media'),
                     //->directory('media'),
                     //->visibility('public'),
                 Forms\Components\TextInput::make('title')

@@ -126,8 +126,8 @@ class MediaResource extends Resource
             ])
             ->contentGrid([
                 'md' => 2,
-                'lg' => 2,
-                'xl' => 3,
+                'lg' => 3,
+                'xl' => 4,
                 '2xl' => 4,
             ])
             ->defaultSort('order_column', 'asc')
