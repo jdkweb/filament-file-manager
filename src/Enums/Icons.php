@@ -19,6 +19,7 @@ enum Icons : string
         return match ($this) {
             self::CSS => '/filament_file_manager/images/' . self::CSS->value,
             self::DOCX => '/filament_file_manager/images/' . self::DOCX->value,
+            self::MSWORD => '/filament_file_manager/images/' . self::MSWORD->value,
             self::JS => '/filament_file_manager/images/' . self::JS->value,
             self::PDF => '/filament_file_manager/images/' . self::PDF->value,
             self::ZIP => '/filament_file_manager/images/' . self::ZIP->value,
