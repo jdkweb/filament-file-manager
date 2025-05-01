@@ -18,9 +18,6 @@ class MediaResource extends Component
         $output = view('filament-file-manager::livewire.media-resource', [
             'records' => $this->getImageData()
         ])->render();
-
-        //return $output;
-        //dd($output);
     }
 
     #[On('selectMediaItem')]

@@ -44,29 +44,14 @@ class FilamentFileManagerPlugin implements Plugin
 
     public function register(Panel $panel): void
     {
-//        if(class_exists(Module::class) && \Nwidart\Modules\Facades\Module::find('FilamentMediaManager')?->isEnabled()){
-//            $this->isActive = true;
-//        }
-//        else {
-//            $this->isActive = true;
-//        }
-//
-//        if($this->isActive) {
-
         $panel->resources([
             FolderResource::class,
             MediaResource::class
         ]);
-
-
     }
 
     public function boot(Panel $panel): void
     {
-//        FilamentMediaManager::register([
-//           MediaManagerType::make('.pdf')
-//               ->icon('heroicon-o-academic-cap')
-//               //->preview('media-manager.pdf')
-//       ]);
+
     }
 }

@@ -27,8 +27,7 @@ class MediaSelectorResource extends Component
     }
 
     public function mount()
-    {;
-        // $this->getFolders();
+    {
     }
 
     #[On('open-modal')]

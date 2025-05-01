@@ -29,12 +29,7 @@ class FilamentFileManagerServiceProvider extends ServiceProvider
      */
     final public function register():void
     {
-//        $this->app->singleton(FilamentFileManagerServices::class, function ($app) {
-//            return new FilamentFileManagerServices();
-//        });
-//
-//        // Alias
-//        $this->app->alias(FilamentFileManagerServices::class, 'filament-file-manager');
+
     }
 
     /**
