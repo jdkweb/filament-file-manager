@@ -22,16 +22,16 @@
                 </div>
             </div>
             <div class="media_overlay_links px-2 py-1 bg-gray-400 rounded-lg">
-                <a title="Huidige afmeting" href="#" wire:click="selectMediaItem({{ $record->id }}, 1)">
+                <a title="Huidige afmeting" href="#" wire:click="selectMediaItem({{ $record->id }}, 'ia_image_full')">
                     <div class="resize full"></div>
                 </a>
-                <a title="3/4" href="#" wire:click="selectMediaItem({{ $record->id }}, 0.75)">
+                <a title="3/4" href="#" wire:click="selectMediaItem({{ $record->id }}, 'ia_image_3_4')">
                     <div class="resize kwart"></div>
                 </a>
-                <a title="1/2" href="#" wire:click="selectMediaItem({{ $record->id }}, 0.5)">
+                <a title="1/2" href="#" wire:click="selectMediaItem({{ $record->id }}, 'ia_image_1_2')">
                     <div class="resize half"></div>
                 </a>
-                <a title="1/3" href="#" wire:click="selectMediaItem({{ $record->id }}, 0.33)">
+                <a title="1/3" href="#" wire:click="selectMediaItem({{ $record->id }}, 'ia_image_1_3')">
                     <div class="resize driekwart"></div>
                 </a>
             </div>
